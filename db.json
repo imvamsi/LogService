@@ -1,0 +1,47 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Change the keyboard on workstation 007",
+      "attention": "false",
+      "date": "12-08-2019",
+      "tech": "Erik Conor"
+    },
+    {
+      "id": 2,
+      "message": "Change the harddrive on workstation 001",
+      "attention": "false",
+      "date": "10-08-2019",
+      "tech": "Peter Thompson"
+    },
+    {
+      "id": 3,
+      "message": "Change the RAM on workstation 004",
+      "attention": "true",
+      "date": "08-08-2019",
+      "tech": "Mike Dutton"
+    }
+  ],
+  "techs": [
+    {
+      "id": 1,
+      "firstname": "Erik",
+      "lastname": "Conor"
+    },
+    {
+      "id": 2,
+      "firstname": "Peter",
+      "lastname": "Thompson"
+    },
+    {
+      "id": 3,
+      "firstname": "Mike",
+      "lastname": "Dutton"
+    },
+    {
+      "firstname": "Vamsikrishna",
+      "lastname": "Tamil Selvan",
+      "id": 4
+    }
+  ]
+}
