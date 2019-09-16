@@ -4,7 +4,12 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import SearchBar from "./components/layout/SearchBar";
 import Logs from "./components/logs/Logs";
 import AddButton from "./components/layout/AddButton";
+
 import AddLogModal from "./components/logs/AddLogModal";
+import TechListModal from "./components/techs/TechListModal";
+import EditLogModal from "./components/logs/EditLogModal";
+import AddTechModal from "./components/techs/AddTechModal";
+
 import "./App.css";
 
 const App = () => {
@@ -19,6 +24,9 @@ const App = () => {
         <Logs />
         <AddButton />
         <AddLogModal />
+        <EditLogModal />
+        <AddTechModal />
+        <TechListModal />
       </div>
     </Fragment>
   );
