@@ -1,18 +1,35 @@
 import { GET_LOGS, SET_LOADING, LOGS_ERROR } from "./types";
 
-export const getLogs = async dispatch => {
-  setLoading();
-  await fetch("http://localhost:/5000/logs").then(res => {
+// export const getLogs = async dispatch => {
+//   setLoading();
+//   await fetch("http://localhost:5000/logs").then(res => {
+//     dispatch({
+//       type: GET_LOGS,
+//       payload: res.logs
+//     }).catch(err => {
+//       dispatch({
+//         type: LOGS_ERROR,
+//         payload: err.res.data
+//       });
+//     });
+//   });
+// };
+
+//returning a function directly inside of a another function
+export const getLogs = () => async dispatch => {
+  try {
+    const res = await fetch("http://localhost:5000/logs");
+    const data = await res.json();
     dispatch({
       type: GET_LOGS,
-      payload: res.data
-    }).catch(err => {
-      dispatch({
-        type: LOGS_ERROR,
-        payload: err.res.data
-      });
+      payload: data
     });
-  });
+  } catch (err) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: err.response.data
+    });
+  }
 };
 
 export const setLoading = () => {
