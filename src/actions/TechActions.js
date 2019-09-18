@@ -27,3 +27,21 @@ export const setLoading = () => {
     type: SET_LOADING
   };
 };
+
+//add techs
+
+export const addTechs = tech => async dispatch => {
+  setLoading();
+  const res = await fetch("http://localhost:5000/techs", {
+    method: "POST",
+    body: JSON.stringify(tech),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  const data = await res.json();
+  dispatch({
+    type: ADD_TECH,
+    payload: data
+  });
+};

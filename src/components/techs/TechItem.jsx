@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const TechItem = ({ tech }) => {
+const TechItem = ({ tech: { id, firstname, lastname } }) => {
   return (
     <li className="collection-item">
-      {tech.firstname} {tech.lastname}
+      {firstname} {lastname}
       <a href="#" className="secondary-content">
         <i className="material-icons grey-text">delete</i>
       </a>
@@ -16,4 +17,4 @@ TechItem.propTypes = {
   tech: PropTypes.object.isRequired
 };
 
-export default TechItem;
+export default connect(null)(TechItem);
