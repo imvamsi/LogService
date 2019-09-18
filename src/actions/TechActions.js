@@ -3,7 +3,8 @@ import {
   ADD_TECH,
   DELETE_TECH,
   SET_LOADING,
-  TECHS_ERROR
+  TECHS_ERROR,
+  DELETE_LOG
 } from "./types";
 
 export const getTechs = () => async dispatch => {
@@ -43,5 +44,18 @@ export const addTechs = tech => async dispatch => {
   dispatch({
     type: ADD_TECH,
     payload: data
+  });
+};
+
+//delete techs
+
+export const deleteTechs = id => async dispatch => {
+  setLoading();
+  await fetch(`http://localhost:5000/techs/${id}`, {
+    method: "DELETE"
+  });
+  dispatch({
+    type: DELETE_TECH,
+    payload: id
   });
 };

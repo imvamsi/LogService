@@ -1,13 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { deleteTechs } from "../../actions/TechActions";
 
-const TechItem = ({ tech: { id, firstname, lastname } }) => {
+const TechItem = ({ tech, deleteTechs }) => {
+  console.log(tech);
+  const onDelete = e => {
+    deleteTechs(tech.id);
+  };
   return (
     <li className="collection-item">
-      {firstname} {lastname}
+      {tech.firstname} {tech.lastname}
       <a href="#" className="secondary-content">
-        <i className="material-icons grey-text">delete</i>
+        <i className="material-icons grey-text" onClick={onDelete}>
+          delete
+        </i>
       </a>
     </li>
   );
@@ -17,4 +24,7 @@ TechItem.propTypes = {
   tech: PropTypes.object.isRequired
 };
 
-export default connect(null)(TechItem);
+export default connect(
+  null,
+  { deleteTechs }
+)(TechItem);
