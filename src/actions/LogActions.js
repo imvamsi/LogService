@@ -6,7 +6,8 @@ import {
   DELETE_LOG,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_LOG
+  UPDATE_LOG,
+  SEARCH_LOGS
 } from "./types";
 
 // export const getLogs = async dispatch => {
@@ -108,5 +109,17 @@ export const setCurrent = log => async dispatch => {
 export const clearCurrent = () => async dispatch => {
   dispatch({
     type: CLEAR_CURRENT
+  });
+};
+
+//search the logs
+
+export const searchLog = text => async dispatch => {
+  setLoading();
+  const res = await fetch(`http://localhost:5000/logs?q=${text}`);
+  const data = await res.json();
+  dispatch({
+    type: SEARCH_LOGS,
+    payload: data
   });
 };
