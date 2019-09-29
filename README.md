@@ -6,4 +6,5 @@
 
 #### Stack used:
 > [materialize-css](https://materializecss.com/)
+
 > [State Management - Redux](https://redux.js.org/)
